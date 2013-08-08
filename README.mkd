@@ -1,0 +1,38 @@
+# CSS短縮入力の展開プラグイン
+
+CSS短縮入力の展開プラグインのコンセプト実装です。
+
+## 使い方
+
+1.  `autoload/` と `ftplugin/` を `runtimepath` の通った場所に置く
+2.  Vim で CSSファイルを開く `$ vim test.css`
+3.  アルファベットを数文字入力してから omni 補完を起動する `<C-X><C-O>`
+
+## 動作説明
+
+インサートモードで `rn<C-X><C-O>` と入力した場合、
+`rn` からおおよそ `r.*n` という正規表現を生成し、
+`autoload/css_expander.txt` からマッチする行を補完候補としています。
+その際、いい感じでソートするので使いやすくなってるはずです。
+
+`rn` で補完した際の候補例:
+
+```
+resize: none;
+resize: inherit;
+resize: horizontal;
+cursor: inherit;
+nav-right: inherit;
+background: 
+(以下略)
+```
+
+
+## 拡張方法
+
+`autoload/css_expander.txt` を直接編集して補完候補を追加できます。
+編集後は Vim を再起動しないと補完候補に反映されません。
+
+## 感想
+
+CSS以外にもこの方式は応用効くかも。
