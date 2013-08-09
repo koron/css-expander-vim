@@ -66,7 +66,7 @@ function! css_expander#weight(word, pattern)
   let matches = matchlist(a:word, a:pattern)
   call remove(matches, 0)
   let weight = 0
-  for ix in range(5)
+  for ix in range(8)
     let curr = ix < len(matches) ? len(matches[ix]) : 0
     let weight = weight * 10 + (curr < 10 ? curr : 9)
   endfor
