@@ -2,9 +2,31 @@
 
 scriptencoding utf-8
 
-if !exists('s:DICT')
-  let s:DICT = readfile(expand('<sfile>:h:p') . '/css_expander.txt', 'b')
+let s:DICT_JSON = expand('<sfile>:h:p') . '/css_expander.json'
+
+if exists('s:DICT')
+  unlet s:DICT
 endif
+
+function! s:get_dict()
+  if !exists('s:DICT')
+    let s:DICT = s:load_dict()
+  endif
+  return s:DICT
+endfunction
+
+function! s:load_dict()
+  let dict = []
+  let src = eval(join(readfile(s:DICT_JSON), ''))
+  for key in sort(keys(src))
+    let values = src[key]
+    call add(dict, printf('%s: ', key))
+    for value in values
+      call add(dict, printf('%s: %s;', key, value))
+    endfor
+  endfor
+  return dict
+endfunction
 
 function! css_expander#omni_complete(findstart, base)
   if a:findstart
@@ -17,7 +39,7 @@ endfunction
 function! css_expander#pre_search()
   let lstr = getline('.')
   let cnum = col('.')
-  let idx = match(lstr, '\k\+\%' . cnum . 'c')
+  let idx = match(lstr, '[-0-9A-Za-z_]\+\%' . cnum . 'c')
   if idx >= 0
     return idx
   else
@@ -30,7 +52,7 @@ function! css_expander#search(base)
     return []
   endif
   let pattern = '\v^(.{-})' . join(split(a:base, '\zs'), '(.{-})') .'(.{-})$'
-  let words = filter(copy(s:DICT), 'match(v:val, pattern) >= 0')
+  let words = filter(copy(s:get_dict()), 'match(v:val, pattern) >= 0')
   call map(words, '[ v:val, css_expander#weight(v:val, pattern) ]')
   call sort(words, 'css_expander#compare_words')
   return { 'words': map(words, 'css_expander#format_item(v:val)') }
@@ -57,4 +79,20 @@ endfunction
 
 function! css_expander#format_item(item)
   return { 'word': a:item[0] }
+endfunction
+
+
+"===========================================================================
+" Dictionary Operations
+
+function! css_expander#dict_reload()
+  let s:DICT = s:load_dict()
+endfunction
+
+function! css_expander#dict_dump()
+  call append(line('.'), s:get_dict())
+endfunction
+
+function! css_expander#dict_get()
+  return s:get_dict()
 endfunction

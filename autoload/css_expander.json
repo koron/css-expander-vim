@@ -1,0 +1,30 @@
+{
+  "background": [ "inherit" ],
+  "background-attachment": [ "scroll", "fixed", "inherit" ],
+  "background-color": [ "transparent", "inherit" ],
+  "background-image": [ "none", "inherit" ],
+  "background-repeat": [ "repeat", "repeat-x", "repeat-y", "no-repeat", "inherit" ],
+  "box-sizing": [ "content-box", "padding-box", "border-box", "inherit" ],
+
+  "content": [],
+  "cursor": [ "inherit" ],
+
+  "icon": [ "auto", "inherit" ],
+  "ime-mode": [ "auto", "normal", "active", "inactive", "disabled", "inherit" ],
+
+  "nav-down": [ "auto", "inherit" ],
+  "nav-index": [ "auto", "inherit" ],
+  "nav-left": [ "auto", "inherit" ],
+  "nav-right": [ "auto", "inherit" ],
+  "nav-up": [ "auto", "inherit" ],
+
+  "outline": [ "inherit" ],
+  "outline-color": [ "invert", "inherit" ],
+  "outline-offset": [ "inherit" ],
+  "outline-style": [ "auto", "inherit" ],
+  "outline-width": [ "inherit" ],
+
+  "resize": [ "none", "both", "horizontal", "vertical", "inherit" ],
+
+  "text-overflow": [ "inherit" ],
+}
