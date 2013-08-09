@@ -9,8 +9,36 @@
   "content": [],
   "cursor": [],
 
+  "direction": [ "ltr", "rtl" ],
+  "display": [
+    "inline", "block", "list-item", "run-in", "inline-block",
+    "table", "inline-table", "table-row-group", "table-header-group",
+    "table-footer-group", "table-row", "table-column-group", "table-column",
+    "table-cell", "table-caption", "none"
+  ],
+
+  "float": [ "left", "right", "none" ],
+  "font-family": [],
+  "font-size": [
+    "xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"
+  ],
+  "font-style": [ "normal", "italic", "oblique" ],
+  "font-variant": [ "normal", "small-caps" ],
+  "font-weight": [
+    "normal", "bold", "lighter", "bolder",
+    "100", "200", "300", "400", "500", "600", "700", "800", "900"
+  ],
+
+  "height": [ "auto" ],
+
   "icon": [ "auto" ],
   "ime-mode": [ "auto", "normal", "active", "inactive", "disabled" ],
+
+  "margin": [],
+  "margin-bottom": [],
+  "margin-left": [ "auto" ],
+  "margin-right": [ "auto" ],
+  "margin-top": [],
 
   "nav-down": [ "auto" ],
   "nav-index": [ "auto" ],
@@ -24,7 +52,16 @@
   "outline-style": [ "auto" ],
   "outline-width": [],
 
+  "padding": [],
+  "padding-bottom": [],
+  "padding-left": [],
+  "padding-right": [],
+  "padding-top": [],
+
   "resize": [ "none", "both", "horizontal", "vertical" ],
 
-  "text-overflow": []
+  "text-overflow": [],
+
+  "z-index": [ "auto" ],
+  "zoom": [ "normal" ]
 }
