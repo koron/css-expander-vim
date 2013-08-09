@@ -26,5 +26,5 @@
 
   "resize": [ "none", "both", "horizontal", "vertical", "inherit" ],
 
-  "text-overflow": [ "inherit" ],
+  "text-overflow": [ "inherit" ]
 }
